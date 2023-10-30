@@ -17,6 +17,7 @@ hello_club_email = os.getenv("HELLO_CLUB_EMAIL")
 # driver = webdriver.Chrome( options=chrome_options)
 
 driver = webdriver.Chrome()
+# add the event you want to go here in "quotation marks "
 driver.get("https://app.helloclub.com/events/view/61b9c7983adbd9c92dd3673a")
 
 
