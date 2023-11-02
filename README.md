@@ -1,4 +1,7 @@
 # let-me-go-to-class
+
+A fun little Script I wrote. 
+
 I want to go to class, but I don't want to check every 5 mins, this script will log you in, and then periodically refresh the class page and try and sign in to the particular class. 
 
 It runs a chrome browser in headless mode, so it sits quietly in the background. 
