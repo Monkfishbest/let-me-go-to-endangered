@@ -8,23 +8,28 @@ The program will terminate when you have signed up.
 ## required tech for mac 
 
 Python3 
-PiP3 
-brew 
+
+PiP3
+
+brew
+
 chrome 
 
 
 ## start guide 
 
 to install dependencies 
-```bash
-pip3 install selenium
-brew install webdriver
-```
+
+`pip3 install selenium`
+
+`brew install webdriver``
+
 
 
 ## Run code 
 
 `python3 letMeGoToClass.py <url_of_class_you_want_to_sign_up_for>`
+
 and watch the magic happen. 
 
 ## Warning
