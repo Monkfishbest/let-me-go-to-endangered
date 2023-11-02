@@ -3,8 +3,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
+import argparse
 import time
 import os
+
+parser = argparse.ArgumentParser(description="Let me go to class")
+parser.add_argument("website_url", help="URL of the page")
+args = parser.parse_args()
+
+website_url = args.website_url
 
 hello_club_password = os.getenv("HELLO_CLUB_PASS")
 hello_club_email = os.getenv("HELLO_CLUB_EMAIL")
@@ -15,8 +22,7 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-gpu")
 driver = webdriver.Chrome( options=chrome_options)
 
-driver.get("https://app.helloclub.com/events/view/61b9c7983adbd9c92dd3673c")
-
+driver.get(website_url)
 
 
 login_portal_button = WebDriverWait(driver,10).until(
@@ -65,7 +71,11 @@ while has_signed_in:
 
 
     except Exception as somethingWrong:
+
+        print("it broke, oh dear :(")  
+        print("**************ERROR**************")
+        print("*********************************")
         print(somethingWrong)
-        print("it broke, oh dear :( ")            
+        break          
 
 
