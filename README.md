@@ -25,7 +25,7 @@ to install dependencies
 
 `pip3 install selenium`
 
-`brew install webdriver``
+`brew install webdriver`
 
 
 
