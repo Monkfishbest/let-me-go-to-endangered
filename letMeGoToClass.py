@@ -3,9 +3,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
+from datetime import datetime
+
 import argparse
 import time
 import os
+
 
 parser = argparse.ArgumentParser(description="Let me go to class")
 parser.add_argument("website_url", help="URL of the page")
@@ -21,6 +24,7 @@ chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-gpu")
 driver = webdriver.Chrome( options=chrome_options)
+# driver = webdriver.Chrome( )
 
 driver.get(website_url)
 
@@ -46,6 +50,7 @@ time.sleep(3)
 
 has_signed_in = True
 while has_signed_in:
+    time.sleep(5)
     try:
         sign_up_button = driver.find_element(By.CSS_SELECTOR, "body > ui-view > app-route > div > main > ui-view > event-view-route > div > div > cards > div > card:nth-child(2) > div > card-event-summary > section > div.EventOptions.ng-scope > div:nth-child(1) > button")
         
@@ -64,7 +69,10 @@ while has_signed_in:
             has_signed_in = False
             print("Closing letMeGoTOClass...")
         else:
-            print("No slots available. Retrying in 5 minutes...")
+            now = datetime.now()
+            current_time = now.strftime("%H:%M:%S")
+            
+            print(current_time,": No slots available. Retrying in 5 minutes...")
             time.sleep(295)
             driver.refresh()
             time.sleep(5)
